@@ -1,6 +1,6 @@
 <?php
 $title = "Bank account de client";
-var_dump($result);
+
 ob_start()  
 ?>
   
@@ -22,7 +22,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <td><?=$row["prenom"]?></td>
     <td><?=$row["balance"]?></td>
     <td><?=$row["devise"]?></td>
-    <td><a href="transaction.php?id=<?=$row["id"]?>">Start a transaction</a></td>
+    <td><a href="index.php?action=transaction&id=<?=$row["id"]?>">Start a transaction</a></td>
 </tr>
 
    <?php

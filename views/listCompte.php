@@ -3,7 +3,7 @@ $title = "List des stagiares";
 
 ob_start()  
 ?>
-   <a href="create.php">ajouter Compte</a>
+   <a href="index.php?action=create">ajouter Compte</a>
 <table border="1">
 <tr>
     
@@ -24,9 +24,9 @@ while ($row = mysqli_fetch_array($result)) {
     <td><?= $genre ?></td>
     <td><?=$row["nationalite"]?></td>
     <td><?=$row["datenaissance"]?></td>
-    <td><a href="edite.php?id=<?=$row['id']?>">modifier</a></td>
-    <td><a href="delete.php?id=<?=$row['id']?>">supprimer</a></td>
-    <td><a href="bankAccount.php?id=<?=$row['id']?>">Check the bank account</a></td>
+    <td><a href="index.php?action=edite&id=<?=$row['id']?>">modifier</a></td>
+    <td><a href="index.php?action=delete&id=<?=$row['id']?>">supprimer</a></td>
+    <td><a href="index.php?action=bankAccount&id=<?=$row['id']?>">Check the bank account</a></td>
 </tr>
 
    <?php

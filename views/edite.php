@@ -12,7 +12,7 @@ $row = mysqli_fetch_array($result);
             </a>
             <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-    <form class="space-y-4 md:space-y-6" id="form" method="post" action="store.php?id=<?=$row["id"]?>">
+    <form class="space-y-4 md:space-y-6" id="form" method="post" action="index.php?action=store&id=<?=$row["id"]?>">
         <input type="hidden" name="id"  value="<?=$row["id"]?>" id="">
                         <div>
                             <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
