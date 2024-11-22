@@ -7,7 +7,7 @@ function data_connexion(){
 }
 function ListCompte(){
   
- $result =  mysqli_query( data_connexion(), "SELECT * from client"); 
+ $result =  mysqli_query( data_connexion(), "select nom,prenom,genre,datenaissance,nationalite,balance,compte.id as CompteID  from compte left join client on client.id = compte.id"); 
 return $result;
 }
 
@@ -52,7 +52,7 @@ function EditeCompte($id){
 ;
    return $result;
   }
-  function StartAtransaction($id){
+  function StartAtransaction($id): bool|mysqli_result{
    $connexion= data_connexion() ;
    $result =  mysqli_query( $connexion, "
       SELECT *  from compte INNER JOIN client on client.id = compte.id where client.id = $id "); 
@@ -86,4 +86,14 @@ function increaseMontantOftheClient(){
                                
    ");
   return $result->execute([ $montant,$Destinations]);
+}
+function ListClients(){
+   $result = mysqli_query( data_connexion(),"select *  from client left join compte ");
+   return $result;
+}
+function    CreateClient(){
+   extract($_POST);
+   $connexion = data_connexion();
+   $result = $connexion->prepare(query: "INSERT INTO client (id,nom, prenom, genre, datenaissance, nationalite) VALUES (?,?, ?, ?, ?, ?)");
+  return $result->execute([$id,$nom, $prenom, $genre, $datenaissance, $nationalite]);
 }

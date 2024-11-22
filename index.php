@@ -15,6 +15,8 @@ switch($action) {
     case "create":
         createAction();
         break;
+    case "listClient":
+        listClientsAction();
     case "delete":
         deleteAction();
         break;
@@ -29,6 +31,15 @@ switch($action) {
         break;
     case "transaction":
         TransactionAction();
+        break;
+    case "createClient":
+        CreateClientAction();
+        break;
+    case "CreateNewClient":
+        ClientCreatedForm();
+        break;
+    case "ClientCreated":
+        ClientCreated();
         break;
     default: 
     listAcountsAction();

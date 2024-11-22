@@ -9,6 +9,7 @@
 <body>
     <nav  class="w-full h-16 bg-red-400 flex items-center justify-around ">
         <a href="index.php?action=list">List des Comptes</a>
+        <a href="index.php?action=listClient">listes des Clients</a>
         <a href="index.php?action=create">Ajouter un Client</a>
     </nav>
     <h1><?= $title ?></h1>
